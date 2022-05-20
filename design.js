@@ -13,8 +13,19 @@ const createPerson = (first, last) => {
   person.firstName = first;
   person.lastName = last;
 
-  return `${person.firstName} ${person.lastName}`;
+  function fullName() {
+    return `${person.firstName} ${person.lastName}`;
+  }
+
+  person.fullName = fullName();
+
+  // Public interface
+  return person;
 };
 
 let personC = createPerson('Daniel', 'Avzaradel');
-console.log(personC);
+let personD = createPerson('David', 'Avzaradel');
+console.log(personC, personD);
+
+let personE = createPerson('Johnny', 'Depp');
+console.log(personE.fullName);
